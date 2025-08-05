@@ -286,11 +286,21 @@
             }
 
             .app-preview-images {
-                gap: 30px;
+                gap: 15px;
             }
 
             .preview-image {
                 max-width: 100%;
+            }
+
+            .instagram-logo {
+                width: 80px;
+                height: 80px;
+                margin-top: 30px;
+            }
+
+            .preview-image:not(:last-child)::after {
+                margin: 12px auto 0;
             }
         }
 
@@ -391,12 +401,22 @@
             }
 
             .app-preview-images {
-                gap: 20px;
+                gap: 10px;
                 width: 100%;
             }
 
             .preview-image {
                 max-width: 100%;
+            }
+
+            .instagram-logo {
+                width: 60px;
+                height: 60px;
+                margin-top: 20px;
+            }
+
+            .preview-image:not(:last-child)::after {
+                margin: 8px auto 0;
             }
         }
 
@@ -496,12 +516,22 @@
             }
 
             .app-preview-images {
-                gap: 15px;
+                gap: 8px;
                 width: 100%;
             }
 
             .preview-image {
                 max-width: 100%;
+            }
+
+            .instagram-logo {
+                width: 50px;
+                height: 50px;
+                margin-top: 15px;
+            }
+
+            .preview-image:not(:last-child)::after {
+                margin: 6px auto 0;
             }
         }
 
@@ -569,7 +599,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 40px;
+            gap: 20px;
         }
 
         .preview-image {
@@ -577,6 +607,76 @@
             height: auto;
             border-radius: 20px;
             transition: all 0.3s ease;
+        }
+
+        .preview-image:not(:last-child)::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 1px;
+            background: repeating-linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0.6) 0px,
+                rgba(255, 255, 255, 0.6) 4px,
+                transparent 4px,
+                transparent 8px
+            );
+            margin: 15px auto 0;
+        }
+
+        .preview-image {
+            max-width: 80%;
+            height: auto;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .instagram-logo {
+            width: 100px;
+            height: 100px;
+            margin-top: 40px;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: shake 3s ease-in-out infinite;
+        }
+
+        .instagram-logo:hover {
+            transform: scale(1.1);
+            filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            10% {
+                transform: translateX(-10px);
+            }
+            20% {
+                transform: translateX(10px);
+            }
+            30% {
+                transform: translateX(-10px);
+            }
+            40% {
+                transform: translateX(10px);
+            }
+            50% {
+                transform: translateX(-5px);
+            }
+            60% {
+                transform: translateX(5px);
+            }
+            70% {
+                transform: translateX(-5px);
+            }
+            80% {
+                transform: translateX(5px);
+            }
+            90% {
+                transform: translateX(-2px);
+            }
         }
 
         .preview-3 {
@@ -681,6 +781,9 @@
                 <img src="./CSpreview3.png" alt="CrateSwipe App Preview 3" class="preview-image preview-3">
                 <img src="./CSpreview1.png" alt="CrateSwipe App Preview 1" class="preview-image preview-1">
                 <img src="./CSpreview2.png" alt="CrateSwipe App Preview 2" class="preview-image preview-2">
+                <a href="https://www.instagram.com/crateswipe/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDIuMTYzYzMuMjA0IDAgMy41ODQuMDEyIDQuODUuMDdhMy4xNzIgMy4xNzIgMCAwIDEgMi4xMDYgMS4wNzdhMy4xNzIgMy4xNzIgMCAwIDEgMS4wNzcgMi4xMDZjLjA1OCAxLjI2Ni4wNyAxLjY0Ni4wNyA0Ljg1cy0uMDEyIDMuNTg0LS4wNyA0Ljg1YTMuMTcyIDMuMTcyIDAgMCAxLTEuMDc3IDIuMTA2YTMuMTcyIDMuMTcyIDAgMCAxLTIuMTA2IDEuMDc3Yy0xLjI2Ni4wNTgtMS42NDYuMDctNC44NS4wN3MtMy41ODQtLjAxMi00Ljg1LS4wN2EzLjE3MiAzLjE3MiAwIDAgMS0yLjEwNi0xLjA3N2EzLjE3MiAzLjE3MiAwIDAgMS0xLjA3Ny0yLjEwNmMtLjA1OC0xLjI2Ni0uMDctMS42NDYtLjA3LTQuODVzLjAxMi0zLjU4NC4wNy00Ljg1YTMuMTcyIDMuMTcyIDAgMCAxIDEuMDc3LTIuMTA2YTMuMTcyIDMuMTcyIDAgMCAxIDIuMTA2LTEuMDc3YzEuMjY2LS4wNTggMS42NDYtLjA3IDQuODUtLjA3em0wLTIuMTYzYy0zLjI1OSAwLTMuNjY3LjAxNC00Ljk0Ny4wNzJhNS4zMzkgNS4zMzkgMCAwIDAtMy40NzkgMS43NzdhNS4zMzkgNS4zMzkgMCAwIDAtMS43NzcgMy40NzljLS4wNTggMS4yOC0uMDcyIDEuNjg4LS4wNzIgNC45NDdzLjAxNCAzLjY2Ny4wNzIgNC45NDdhNS4zMzkgNS4zMzkgMCAwIDAgMS43NzcgMy40NzkgNS4zMzkgNS4zMzkgMCAwIDAgMy40NzkgMS43NzdjMS4yOC4wNTggMS42ODguMDcyIDQuOTQ4LjA3MnMzLjY2Ny0uMDE0IDQuOTQ3LS4wNzJhNS4zMzkgNS4zMzkgMCAwIDAgMy40NzktMS43NzdhNS4zMzkgNS4zMzkgMCAwIDAgMS43NzctMy40NzljLjA1OC0xLjI4LjA3Mi0xLjY4OC4wNzItNC45NDdzLS4wMTQtMy42NjctLjA3Mi00Ljk0N2E1LjMzOSA1LjMzOSAwIDAgMC0xLjc3Ny0zLjQ3OUE1LjMzOSA1LjMzOSAwIDAgMCAxNi45NDcgMi4yMzJjLTEuMjgtLjA1OC0xLjY4OC0uMDcyLTQuOTQ4LS4wNzJ6bTAgNS44MzdhMy45NzIgMy45NzIgMCAxIDEgMCA3Ljk0NCAzLjk3MiAzLjk3MiAwIDAgMSAwLTcuOTQ0em0wIDYuNTI4YTIuNTU2IDIuNTU2IDAgMSAwIDAtNS4xMTIgMi41NTYgMi41NTYgMCAwIDAgMCA1LjExMnpNMTYuNzA0IDUuNzFhLjkyOS45MjkgMCAxIDAgMCAxLjg1OC45MjkuOTI5IDAgMCAwIDAtMS44NTh6IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="Instagram" class="instagram-logo">
+                </a>
             </div>
         </div>
     </section>
