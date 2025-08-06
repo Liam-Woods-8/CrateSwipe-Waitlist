@@ -58,7 +58,7 @@
             letter-spacing: 2px;
             position: relative;
             overflow: hidden;
-            text-transform: lowercase;
+            text-transform: none;
         }
 
         h1::after {
@@ -415,12 +415,29 @@
                 padding: 8px 12px;
             }
 
-            /* Gallery - Mobile */
-            .gallery-section {
-                padding: 20px 5px;
-                min-height: 85vh;
-                overflow-x: hidden;
+                    /* Gallery - Mobile */
+        .gallery-section {
+            padding: 20px 5px;
+            min-height: 85vh;
+            overflow-x: hidden;
+        }
+
+        .preview-image:first-child {
+            margin-top: 60px;
+        }
+
+        /* Additional mobile spacing for preview images */
+        @media (max-width: 480px) {
+            .preview-image:first-child {
+                margin-top: 80px;
             }
+        }
+
+        @media (max-width: 360px) {
+            .preview-image:first-child {
+                margin-top: 100px;
+            }
+        }
 
             .gallery-container {
                 max-width: 100vw;
@@ -758,7 +775,7 @@
     <div class="container">
         <img src="./CSlogopng.png" alt="CrateSwipe Logo" class="logo">
         
-        <h1>CRATESWIPE</h1>
+        <h1>CrateSwipe</h1>
         <h2>be the first to experience the future of music curation</h2>
         <h4><span class="green-dot"></span>early access coming soon</h4>
         
@@ -830,43 +847,31 @@
                 body: JSON.stringify(data)
             })
             .then(() => {
-                // Success - show thank you message
+                // Success - show thank you message permanently
                 submitBtn.querySelector('p').innerHTML = 'thank you';
                 
-                // Hide form fields
+                // Hide form fields permanently
                 const formFields = form.querySelectorAll('.input-group');
                 formFields.forEach(field => {
                     field.style.display = 'none';
                 });
                 
-                // Reset button text after 3 seconds
-                setTimeout(() => {
-                    submitBtn.querySelector('p').innerHTML = originalText;
-                    // Show form fields again
-                    formFields.forEach(field => {
-                        field.style.display = 'flex';
-                    });
-                }, 3000);
+                // Disable the form to prevent further submissions
+                form.style.pointerEvents = 'none';
             })
             .catch((error) => {
                 // Handle any errors gracefully
                 console.error('Error:', error);
                 submitBtn.querySelector('p').innerHTML = 'thank you';
                 
-                // Hide form fields
+                // Hide form fields permanently
                 const formFields = form.querySelectorAll('.input-group');
                 formFields.forEach(field => {
                     field.style.display = 'none';
                 });
                 
-                // Reset button text after 3 seconds
-                setTimeout(() => {
-                    submitBtn.querySelector('p').innerHTML = originalText;
-                    // Show form fields again
-                    formFields.forEach(field => {
-                        field.style.display = 'flex';
-                    });
-                }, 3000);
+                // Disable the form to prevent further submissions
+                form.style.pointerEvents = 'none';
             });
         });
 
