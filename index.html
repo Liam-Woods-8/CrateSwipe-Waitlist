@@ -40,7 +40,7 @@
         }
 
         .logo {
-            width: 180px;
+            width: 80px;
             height: auto;
             margin-bottom: 30px;
             filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
@@ -58,6 +58,7 @@
             letter-spacing: 2px;
             position: relative;
             overflow: hidden;
+            text-transform: lowercase;
         }
 
         h1::after {
@@ -81,9 +82,8 @@
             font-weight: normal;
             position: relative;
             overflow: hidden;
+            text-transform: lowercase;
         }
-
-
 
         h4 {
             font-family: 'TypestarOCR', monospace;
@@ -93,6 +93,40 @@
             font-weight: normal;
             position: relative;
             overflow: hidden;
+            text-transform: lowercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .green-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .green-dot {
+                width: 6px;
+                height: 6px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .green-dot {
+                width: 5px;
+                height: 5px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .green-dot {
+                width: 4px;
+                height: 4px;
+            }
         }
 
         h2::after {
@@ -107,8 +141,6 @@
             animation: typewriter 2s steps(30, end) forwards;
             pointer-events: none;
         }
-
-
 
         h4::after {
             content: '';
@@ -258,14 +290,12 @@
                 font-size: 1.2rem;
             }
 
-
-
             h4 {
                 font-size: 0.9rem;
             }
             
             .logo {
-                width: 120px;
+                width: 70px;
             }
             
             .container {
@@ -332,8 +362,6 @@
                 line-height: 1.3;
             }
 
-
-
             h4 {
                 font-size: 0.7rem;
                 margin-bottom: 25px;
@@ -343,7 +371,7 @@
             }
             
             .logo {
-                width: 80px;
+                width: 50px;
                 margin-bottom: 20px;
             }
 
@@ -448,8 +476,6 @@
                 line-height: 1.2;
             }
 
-
-
             h4 {
                 font-size: 0.6rem;
                 margin-bottom: 20px;
@@ -459,7 +485,7 @@
             }
             
             .logo {
-                width: 60px;
+                width: 40px;
                 margin-bottom: 15px;
             }
 
@@ -732,9 +758,9 @@
     <div class="container">
         <img src="./CSlogopng.png" alt="CrateSwipe Logo" class="logo">
         
-        <h1>CrateSwipe</h1>
-        <h2>Join the Revolution</h2>
-        <h4>Early access coming soon</h4>
+        <h1>CRATESWIPE</h1>
+        <h2>be the first to experience the future of music curation</h2>
+        <h4><span class="green-dot"></span>early access coming soon</h4>
         
                  <form class="form-container" id="waitlistForm">
              <div class="input-group">
@@ -763,9 +789,9 @@
     <section id="gallery" class="gallery-section">
         <div class="gallery-container">
             <div class="app-preview-images">
-                <img src="./CSpreview3.png" alt="CrateSwipe App Preview 3" class="preview-image preview-3">
-                <img src="./CSpreview1.png" alt="CrateSwipe App Preview 1" class="preview-image preview-1">
-                <img src="./CSpreview2.png" alt="CrateSwipe App Preview 2" class="preview-image preview-2">
+                <img src="./newCSprev1.png" alt="CrateSwipe App Preview 1" class="preview-image preview-1">
+                <img src="./newCSprev2.png" alt="CrateSwipe App Preview 2" class="preview-image preview-2">
+                <img src="./newCSprev3.png" alt="CrateSwipe App Preview 3" class="preview-image preview-3">
                 <a href="https://www.instagram.com/crateswipe/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer">
                     <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDIuMTYzYzMuMjA0IDAgMy41ODQuMDEyIDQuODUuMDdhMy4xNzIgMy4xNzIgMCAwIDEgMi4xMDYgMS4wNzdhMy4xNzIgMy4xNzIgMCAwIDEgMS4wNzcgMi4xMDZjLjA1OCAxLjI2Ni4wNyAxLjY0Ni4wNyA0Ljg1cy0uMDEyIDMuNTg0LS4wNyA0Ljg1YTMuMTcyIDMuMTcyIDAgMCAxLTEuMDc3IDIuMTA2YTMuMTcyIDMuMTcyIDAgMCAxLTIuMTA2IDEuMDc3Yy0xLjI2Ni4wNTgtMS42NDYuMDctNC44NS4wN3MtMy41ODQtLjAxMi00Ljg1LS4wN2EzLjE3MiAzLjE3MiAwIDAgMS0yLjEwNi0xLjA3N2EzLjE3MiAzLjE3MiAwIDAgMS0xLjA3Ny0yLjEwNmMtLjA1OC0xLjI2Ni0uMDctMS42NDYtLjA3LTQuODVzLjAxMi0zLjU4NC4wNy00Ljg1YTMuMTcyIDMuMTcyIDAgMCAxIDEuMDc3LTIuMTA2YTMuMTcyIDMuMTcyIDAgMCAxIDIuMTA2LTEuMDc3YzEuMjY2LS4wNTggMS42NDYtLjA3IDQuODUtLjA3em0wLTIuMTYzYy0zLjI1OSAwLTMuNjY3LjAxNC00Ljk0Ny4wNzJhNS4zMzkgNS4zMzkgMCAwIDAtMy40NzkgMS43NzdhNS4zMzkgNS4zMzkgMCAwIDAtMS43NzcgMy40NzljLS4wNTggMS4yOC0uMDcyIDEuNjg4LS4wNzIgNC45NDdzLjAxNCAzLjY2Ny4wNzIgNC45NDdhNS4zMzkgNS4zMzkgMCAwIDAgMS43NzcgMy40NzkgNS4zMzkgNS4zMzkgMCAwIDAgMy40NzkgMS43NzdjMS4yOC4wNTggMS42ODguMDcyIDQuOTQ4LjA3MnMzLjY2Ny0uMDE0IDQuOTQ3LS4wNzJhNS4zMzkgNS4zMzkgMCAwIDAgMy40NzktMS43NzdhNS4zMzkgNS4zMzkgMCAwIDAgMS43NzctMy40NzljLjA1OC0xLjI4LjA3Mi0xLjY4OC4wNzItNC45NDdzLS4wMTQtMy42NjctLjA3Mi00Ljk0N2E1LjMzOSA1LjMzOSAwIDAgMC0xLjc3Ny0zLjQ3OUE1LjMzOSA1LjMzOSAwIDAgMCAxNi45NDcgMi4yMzJjLTEuMjgtLjA1OC0xLjY4OC0uMDcyLTQuOTQ4LS4wNzJ6bTAgNS44MzdhMy45NzIgMy45NzIgMCAxIDEgMCA3Ljk0NCAzLjk3MiAzLjk3MiAwIDAgMSAwLTcuOTQ0em0wIDYuNTI4YTIuNTU2IDIuNTU2IDAgMSAwIDAtNS4xMTIgMi41NTYgMi41NTYgMCAwIDAgMCA1LjExMnpNMTYuNzA0IDUuNzFhLjkyOS45MjkgMCAxIDAgMCAxLjg1OC45MjkuOTI5IDAgMCAwIDAtMS44NTh6IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="Instagram" class="instagram-logo">
                 </a>
@@ -805,23 +831,41 @@
             })
             .then(() => {
                 // Success - show thank you message
-                submitBtn.querySelector('p').innerHTML = 'Thank You, we will be in touch soon';
-                form.reset();
+                submitBtn.querySelector('p').innerHTML = 'thank you';
+                
+                // Hide form fields
+                const formFields = form.querySelectorAll('.input-group');
+                formFields.forEach(field => {
+                    field.style.display = 'none';
+                });
                 
                 // Reset button text after 3 seconds
                 setTimeout(() => {
                     submitBtn.querySelector('p').innerHTML = originalText;
+                    // Show form fields again
+                    formFields.forEach(field => {
+                        field.style.display = 'flex';
+                    });
                 }, 3000);
             })
             .catch((error) => {
                 // Handle any errors gracefully
                 console.error('Error:', error);
-                submitBtn.querySelector('p').innerHTML = 'Thank You, we will be in touch soon';
-                form.reset();
+                submitBtn.querySelector('p').innerHTML = 'thank you';
+                
+                // Hide form fields
+                const formFields = form.querySelectorAll('.input-group');
+                formFields.forEach(field => {
+                    field.style.display = 'none';
+                });
                 
                 // Reset button text after 3 seconds
                 setTimeout(() => {
                     submitBtn.querySelector('p').innerHTML = originalText;
+                    // Show form fields again
+                    formFields.forEach(field => {
+                        field.style.display = 'flex';
+                    });
                 }, 3000);
             });
         });
