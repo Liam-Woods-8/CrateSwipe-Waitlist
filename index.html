@@ -572,13 +572,83 @@
             align-items: center;
             gap: 20px;
             margin-top: 30px;
+            /* Prevent selection of the entire section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
+        /* Prevent printing of preview images */
+        @media print {
+            .preview-image,
+            .preview-image-container {
+                display: none !important;
+            }
+        }
+
+        /* Additional protection - disable image saving through CSS */
         .preview-image {
             max-width: 80%;
             height: auto;
             border-radius: 20px;
             transition: all 0.3s ease;
+            /* Prevent image saving */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            pointer-events: none;
+            position: relative;
+            /* Additional protection */
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Add transparent overlay to prevent right-click saving */
+        .preview-image-container {
+            position: relative;
+            display: inline-block;
+            max-width: 80%;
+            /* Additional protection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+        }
+
+        .preview-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .preview-image-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent;
+            z-index: 2;
+            pointer-events: none;
         }
 
         .preview-image:not(:last-child)::after {
@@ -725,9 +795,15 @@
         <p class="disclaimer">By joining, you agree to receive updates about our launch.<br>No spam, unsubscribe anytime.</p>
 
         <div class="app-preview-images">
-            <img src="./newCSprev1.png" alt="CrateSwipe App Preview 1" class="preview-image preview-1">
-            <img src="./newCSprev2.png" alt="CrateSwipe App Preview 2" class="preview-image preview-2">
-            <img src="./newCSprev3.png" alt="CrateSwipe App Preview 3" class="preview-image preview-3">
+            <div class="preview-image-container">
+                <img src="./newCSprev1.png" alt="CrateSwipe App Preview 1" class="preview-image preview-1">
+            </div>
+            <div class="preview-image-container">
+                <img src="./newCSprev2.png" alt="CrateSwipe App Preview 2" class="preview-image preview-2">
+            </div>
+            <div class="preview-image-container">
+                <img src="./newCSprev3.png" alt="CrateSwipe App Preview 3" class="preview-image preview-3">
+            </div>
             <a href="https://www.instagram.com/crateswipe/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer">
                 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDIuMTYzYzMuMjA0IDAgMy41ODQuMDEyIDQuODUuMDdhMy4xNzIgMy4xNzIgMCAwIDEgMi4xMDYgMS4wNzdhMy4xNzIgMy4xNzIgMCAwIDEgMS4wNzcgMi4xMDZjLjA1OCAxLjI2Ni4wNyAxLjY0Ni4wNyA0Ljg1cy0uMDEyIDMuNTg0LS4wNyA0Ljg1YTMuMTcyIDMuMTcyIDAgMCAxLTEuMDc3IDIuMTA2YTMuMTcyIDMuMTcyIDAgMCAxLTIuMTA2IDEuMDc3Yy0xLjI2Ni4wNTgtMS42NDYuMDctNC44NS4wN3MtMy41ODQtLjAxMi00Ljg1LS4wN2EzLjE3MiAzLjE3MiAwIDAgMS0yLjEwNi0xLjA3N2EzLjE3MiAzLjE3MiAwIDAgMS0xLjA3Ny0yLjEwNmMtLjA1OC0xLjI2Ni0uMDctMS42NDYtLjA3LTQuODVzLjAxMi0zLjU4NC4wNy00Ljg1YTMuMTcyIDMuMTcyIDAgMCAxIDEuMDc3LTIuMTA2YTMuMTcyIDMuMTcyIDAgMCAxIDIuMTA2LTEuMDc3YzEuMjY2LS4wNTggMS42NDYtLjA3IDQuODUtLjA3em0wLTIuMTYzYy0zLjI1OSAwLTMuNjY3LjAxNC00Ljk0Ny4wNzJhNS4zMzkgNS4zMzkgMCAwIDAtMy40NzkgMS43NzdhNS4zMzkgNS4zMzkgMCAwIDAtMS43NzcgMy40NzljLS4wNTggMS4yOC0uMDcyIDEuNjg4LS4wNzIgNC45NDdzLjAxNCAzLjY2Ny4wNzIgNC45NDdhNS4zMzkgNS4zMzkgMCAwIDAgMS43NzcgMy40NzkgNS4zMzkgNS4zMzkgMCAwIDAgMy40NzkgMS43NzdjMS4yOC4wNTggMS42ODguMDcyIDQuOTQ4LjA3MnMzLjY2Ny0uMDE0IDQuOTQ3LS4wNzJhNS4zMzkgNS4zMzkgMCAwIDAgMy40NzktMS43NzdhNS4zMzkgNS4zMzkgMCAwIDAgMS43NzctMy40NzljLjA1OC0xLjI4LjA3Mi0xLjY4OC4wNzItNC45NDdzLS4wMTQtMy42NjctLjA3Mi00Ljk0N2E1LjMzOSA1LjMzOSAwIDAgMC0xLjc3Ny0zLjQ3OUE1LjMzOSA1LjMzOSAwIDAgMCAxNi45NDcgMi4yMzJjLTEuMjgtLjA1OC0xLjY4OC0uMDcyLTQuOTQ4LS4wNzJ6bTAgNS44MzdhMy45NzIgMy45NzIgMCAxIDEgMCA3Ljk0NCAzLjk3MiAzLjk3MiAwIDAgMSAwLTcuOTQ0em0wIDYuNTI4YTIuNTU2IDIuNTU2IDAgMSAwIDAtNS4xMTIgMi41NTYgMi41NTYgMCAwIDAgMCA1LjExMnpNMTYuNzA0IDUuNzFhLjkyOS45MjkgMCAxIDAgMCAxLjg1OC45MjkuOTI5IDAgMCAwIDAtMS44NTh6IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="Instagram" class="instagram-logo">
             </a>
@@ -821,8 +897,89 @@
         // Force scroll to top immediately
         window.scrollTo(0, 0);
 
+        // Prevent image saving - Comprehensive protection
+        document.addEventListener('DOMContentLoaded', function() {
+            // Prevent right-click on images
+            document.addEventListener('contextmenu', function(e) {
+                if (e.target.tagName === 'IMG' || e.target.closest('.preview-image-container')) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
 
+            // Prevent drag and drop of images
+            document.addEventListener('dragstart', function(e) {
+                if (e.target.tagName === 'IMG' || e.target.closest('.preview-image-container')) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
 
+            // Prevent keyboard shortcuts for saving images
+            document.addEventListener('keydown', function(e) {
+                // Prevent Ctrl+S, Ctrl+Shift+S, F12, Ctrl+U, Ctrl+Shift+I
+                if ((e.ctrlKey && (e.key === 's' || e.key === 'S' || e.key === 'u' || e.key === 'U')) ||
+                    (e.ctrlKey && e.shiftKey && (e.key === 's' || e.key === 'S' || e.key === 'i' || e.key === 'I')) ||
+                    e.key === 'F12') {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            // Prevent image selection
+            document.addEventListener('selectstart', function(e) {
+                if (e.target.tagName === 'IMG' || e.target.closest('.preview-image-container')) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            // Prevent copy operations on images
+            document.addEventListener('copy', function(e) {
+                if (e.target.tagName === 'IMG' || e.target.closest('.preview-image-container')) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            // Add additional protection for preview images
+            const previewImages = document.querySelectorAll('.preview-image');
+            previewImages.forEach(function(img) {
+                // Disable image saving through various methods
+                img.style.pointerEvents = 'none';
+                img.style.userSelect = 'none';
+                img.style.webkitUserSelect = 'none';
+                img.style.mozUserSelect = 'none';
+                img.style.msUserSelect = 'none';
+                
+                // Prevent image loading in new tabs
+                img.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+            });
+
+            // Prevent developer tools (basic protection)
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+                    (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'U')) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            // Disable image saving through browser dev tools
+            setInterval(function() {
+                const images = document.querySelectorAll('.preview-image');
+                images.forEach(function(img) {
+                    img.style.pointerEvents = 'none';
+                    img.style.userSelect = 'none';
+                    img.style.webkitUserSelect = 'none';
+                    img.style.mozUserSelect = 'none';
+                    img.style.msUserSelect = 'none';
+                });
+            }, 1000);
+        });
 
 
     </script>
